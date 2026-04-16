@@ -1,20 +1,24 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import BuscaPokemon from './componentes/BuscaPokemon';
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer> 
+        <Drawer.Navigator>
+          <Drawer.Screen name="Opção I">
+            {(props) => <BuscaPokemon {...props} detalhado={true} />}
+          </Drawer.Screen>
+
+          <Drawer.Screen name="Opção II">
+            {(props) => <BuscaPokemon {...props} detalhado={false} />}
+          </Drawer.Screen>
+        </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
