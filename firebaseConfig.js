@@ -12,4 +12,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const database = getDatabase(app); // Exportando a instância do banco
+export const db1 = getDatabase(app); // Exportando a instância do banco
